@@ -3,10 +3,10 @@
 use Connection\Database;
 
 use ActiveRecord\Book;
-use ActiveRecord\Author;
+//use ActiveRecord\Author;
 
 use DDD\Repositories\BookRepository;
-use DDD\Repositories\AuthorRepository;
+//use DDD\Repositories\AuthorRepository;
 
 require_once('info.php');
 
@@ -44,7 +44,9 @@ switch ($pattern) {
 }
 
 function printBooks($books) {
-    foreach($books as $row) {
+    $it = new MyIterator($books);
+
+    foreach($it as $row) {
         echo 'Knygos pavadinimas: ' . $row['title'] . '<br />Knygos Autoriai: ' . $row['bookAuthors'] . '<br /><br />';
     }
 }
